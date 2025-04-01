@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Gab Baltazar Icons - Dynamic BG</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    </head>
+    <style>
+      body {
+         /* background-color: rgb(3, 3, 3); Removed static background */
+         display: flex;
+         flex-direction: column;
+         align-items: center; /* Center containers horizontally */
+         padding-top: 20px; /* Add some space at the top */
+         min-height: 100vh; /* Ensure body takes full height */
+         transition: background-color 1s ease-in-out; /* Smooth transition for background color */
+      }
+      .name-container {
+          /* background-image: url(bg.gif); */
+          background-color: rgba(26, 26, 26, 0.8); /* Slightly transparent dark background */
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-bottom: 20px; /* Add some space between names */
+          border-radius: 15px; /* Rounded corners for the container */
+          max-width: 90%; /* Limit container width */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+      }
+      .letter {
+          font-size: clamp(20px, 4vw, 35px); /* Slightly smaller font size */
+          font-weight: bold;
+          color: rgba(255, 255, 255, 0.1); /* Make letter transparent */
+          width: clamp(60px, 10vw, 80px); /* Slightly larger circles */
+          height: clamp(60px, 10vw, 80px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          position: relative; /* Needed for icon positioning */
+          overflow: hidden; /* Hide icon overflow if any */
+      }
+      .red { background-color: #dc3545; }
+      .blue { background-color: #0dcaf0; }
+      .green { background-color: #198754; }
+      .orange { background-color: #fd7e14; }
+      .purple { background-color: #6f42c1; }
+      .yellow { background-color: #ffc107; }
+      .pink { background-color: #d63384; }
+      .teal { background-color: #20c997; }
+      .indigo { background-color: #6610f2; }
+      .dark-gray { background-color: #343a40; }
+
+      .icon {
+          position: absolute;
+          font-size: clamp(30px, 5vw, 45px); /* Larger icon size */
+          color: white; /* Make icon white */
+          line-height: 1; /* Ensure icon is centered vertically */
+      }
+
+      /* Specific Icon Colors (Optional - can override background) */
+      .bi-google { color: #DB4437; } /* Google Red */
+      .bi-apple { color: #A2AAAD; } /* Apple Grey */
+      .bi-bootstrap { color: #7952B3; } /* Bootstrap Purple */
+      .bi-linkedin { color: #0A66C2; } /* LinkedIn Blue */
+      .bi-twitter { color: #1DA1F2; } /* Twitter Blue */
+      .bi-meta { color: #1877F2; } /* Meta/Facebook Blue */
+      .bi-reddit { color: #FF4500; } /* Reddit Orange */
+      .bi-github { color: #181717; } /* GitHub Black */
+      .bi-code-slash { color: #ffffff; } /* White for generic */
+
+
+      @media (max-width: 600px) {
+          .name-container {
+              gap: 5px;
+              padding: 15px;
+          }
+          .letter {
+            width: clamp(50px, 12vw, 60px);
+            height: clamp(50px, 12vw, 60px);
+          }
+          .icon {
+            font-size: clamp(25px, 6vw, 35px);
+          }
+      }
+    </style>
+    <body>
+      <div class="name-container">
+          <div class="letter red">G<i class="bi bi-google icon"></i></div>
+          <div class="letter blue">A<i class="bi bi-apple icon"></i></div>
+          <div class="letter green">B<i class="bi bi-bootstrap icon"></i></div>
+      </div>
+
+      <div class="name-container">
+          <div class="letter teal">B<i class="bi bi-bootstrap icon"></i></div>
+          <div class="letter indigo">A<i class="bi bi-apple icon"></i></div>
+          <div class="letter dark-gray">L<i class="bi bi-linkedin icon"></i></div>
+          <div class="letter red">T<i class="bi bi-twitter icon"></i></div>
+          <div class="letter blue">A<i class="bi bi-meta icon"></i></div> <!-- Using Meta/Facebook for second A -->
+          <div class="letter green">Z<i class="bi bi-code-slash icon"></i></div> <!-- Generic icon for Z -->
+          <div class="letter orange">A<i class="bi bi-github icon"></i></div> <!-- Using GitHub for third A -->
+          <div class="letter purple">R<i class="bi bi-reddit icon"></i></div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script>
+        const colors = [
+          '#1a1a1a', '#2c3e50', '#34495e', '#2c2c54', '#474787',
+          '#227093', '#34ace0', '#ff5252', '#ff793f', '#ffb142',
+          '#706fd3', '#474787', '#341f97', '#ff3838', '#ff9f1a'
+        ];
+        let colorIndex = 0;
+
+        function changeBackgroundColor() {
+          document.body.style.backgroundColor = colors[colorIndex];
+          colorIndex = (colorIndex + 1) % colors.length; // Cycle through colors
+        }
+
+        // Initial background color set
+        changeBackgroundColor();
+
+        // Change background color every 3 seconds (3000 milliseconds)
+        setInterval(changeBackgroundColor, 3000);
+      </script>
+    </body>
+    </html>
